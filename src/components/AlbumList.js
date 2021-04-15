@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View, Text} from 'react-native';
+import {ScrollView, Text} from 'react-native';
 import axios from 'axios';
 import AlbumDetail from './AlbumDetail'
 
@@ -8,7 +8,7 @@ class AlbumList extends Component {
 
     state = { albums:[] };
 
-    componentWillMount() {
+    componentDidMount() {
        axios.get('https://jsonplaceholder.typicode.com/photos' )
        .then(response => {
            console.log('albums', response)
@@ -28,9 +28,9 @@ class AlbumList extends Component {
        console.log(this.state);
 
        return(
-        <View>
+        <ScrollView>
             {this.renderAlbums()}
-            </View>
+            </ScrollView>
     );
    }
 };
